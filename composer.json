@@ -1,0 +1,38 @@
+{
+    "name": "rs/rs-admin",
+    "description": "Admin panel for laravel framework",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "admin",
+        "administrator",
+        "crud",
+        "panel"
+    ],
+    "authors": [
+        {
+            "name": "Egor Popov",
+            "email": "qwjohnyegpo@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Rs\\RsAdmin\\": "src/"
+        }
+    },
+    "require": {
+        "php": "^7.2.5",
+        "ext-json": "*",
+        "laravel/framework": "~7.0",
+        "barryvdh/laravel-ide-helper": "^2.4.3",
+        "doctrine/dbal": "~2.3"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rs\\RsAdmin\\Providers\\RsAdminServiceProvider"
+            ]
+        }
+    }
+}

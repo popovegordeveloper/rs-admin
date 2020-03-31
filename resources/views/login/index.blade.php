@@ -3,13 +3,16 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <title>Административная панель | Авторизация</title>
+
 </head>
 <body>
-<form action="{{ route('admin.login') }}" method="POST">
-    @csrf
-    <input type="email" name="email">
-    <input type="password" name="password">
-    <button>Войти</button>
-</form>
+    <div id="root">
+        <form action="{{ route('admin.login') }}" method="POST">
+            @csrf
+            <input type="email" name="email">
+            <input type="password" name="password">
+            <button>Войти</button>
+        </form>
+    </div>
 </body>
 </html>

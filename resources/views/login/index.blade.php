@@ -5,8 +5,11 @@
     <title>Административная панель | Авторизация</title>
 </head>
 <body>
-<form action="" method="POST">
-
+<form action="{{ route('admin.login') }}" method="POST">
+    @csrf
+    <input type="email" name="email">
+    <input type="password" name="password">
+    <button>Войти</button>
 </form>
 </body>
 </html>

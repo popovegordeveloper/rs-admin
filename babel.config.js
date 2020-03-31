@@ -14,7 +14,6 @@ module.exports = function (api) {
                     useBuiltIns: 'usage',
                 },
             ],
-            '@babel/preset-react',
         ],
         plugins: [
             [

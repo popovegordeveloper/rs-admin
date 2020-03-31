@@ -1,6 +1,6 @@
 import Vue from 'vue'
 
-const componentns = require.contexts('./components', true, /\.vue/);
+const componentns = require.context('./components', true, /\.vue/);
 
 console.log(componentns);
 

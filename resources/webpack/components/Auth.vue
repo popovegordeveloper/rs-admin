@@ -1,6 +1,6 @@
 <template>
     <div class="auth">
-        123123
+
     </div>
 </template>
 

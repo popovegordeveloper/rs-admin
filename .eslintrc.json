@@ -9,7 +9,7 @@
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [".js", ".jsx", ".es6", ".vue", ".sass", ".scss", ".json"]
+        "extensions": [".js", ".es6", ".vue", ".sass", ".scss", ".json"]
       }
     }
   },

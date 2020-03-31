@@ -156,7 +156,6 @@ const config = {
                 options: {
                     configFile: path.resolve(__dirname, 'babel.config.js'),
                 },
-                exclude: file => /node_modules/.test(file) && !/\.vue\.js/.test(file),
             },
             {
                 test: /\.(jpe?g|png|gif|svg|ico)$/i,
@@ -242,54 +241,6 @@ const config = {
                 test: /\.css$/,
                 use: styleLoader(false, false),
             },
-            {
-                test: /\.pug$/,
-                loader: 'pug-loader',
-                include: [
-                    /inline/i,
-                ],
-            },
-            {
-                test: /\.pug$/,
-                exclude: [
-                    /inline/i,
-                ],
-                oneOf: [
-                    {
-                        resourceQuery: /^\?vue/,
-                        use: ['pug-plain-loader'],
-                    },
-                    {
-                        use: [
-                            {
-                                loader: 'file-loader',
-                                options: {
-                                    name: '[name].html',
-                                },
-                            }, {
-                                loader: 'extract-loader',
-                            }, {
-                                loader: 'html-loader',
-                                options: {
-                                    root: path.resolve(PATH_SRC),
-                                    attrs: ['img:src'],
-                                    interpolate: 'require',
-                                },
-                            },
-                            {
-                                loader: 'pug-html-loader',
-                                options: {
-                                    basedir: path.resolve(PATH_SRC),
-                                    pretty: '    ',
-                                    data: {
-                                        hash: (new Date()).getTime().toString('16'),
-                                    },
-                                },
-                            },
-                        ],
-                    },
-                ],
-            },
         ],
     },
 
@@ -302,7 +253,7 @@ const config = {
         // alias: {
         //   vue$: 'vue/dist/vue.common.js',
         // },
-        extensions: ['*', '.js', '.es6', '.jsx', '.vue', '.css', '.scss', '.sass'],
+        extensions: ['*', '.js', '.es6', '.vue', '.css', '.scss', '.sass'],
     },
 
     devtool: IS_PRODUCTION ? 'none' : 'inline-cheap-source-map',
@@ -346,11 +297,11 @@ const config = {
         new webpack.DefinePlugin({
             'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
         }),
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery',
-        }),
+        // new webpack.ProvidePlugin({
+        //     $: 'jquery',
+        //     jQuery: 'jquery',
+        //     'window.jQuery': 'jquery',
+        // }),
         new VueLoaderPlugin(),
     ],
 };

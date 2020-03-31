@@ -156,6 +156,7 @@ const config = {
                 options: {
                     configFile: path.resolve(__dirname, 'babel.config.js'),
                 },
+                exclude: /node_modules/i,
             },
             {
                 test: /\.(jpe?g|png|gif|svg|ico)$/i,
@@ -250,9 +251,9 @@ const config = {
             path.resolve(__dirname, 'node_modules'),
             path.resolve(PATH_SRC),
         ],
-        // alias: {
-        //   vue$: 'vue/dist/vue.common.js',
-        // },
+        alias: {
+          vue$: 'vue/dist/vue.common.js',
+        },
         extensions: ['*', '.js', '.es6', '.vue', '.css', '.scss', '.sass'],
     },
 
@@ -306,15 +307,13 @@ const config = {
     ],
 };
 
-if (IS_PRODUCTION) {
-    config.plugins.push(
-        new CleanWebpackPlugin(),
-        new ManifestPlugin({
-            fileName: path.resolve(PATH_PUBLIC, 'mix-manifest.json'),
-            publicPath: PATH_ASSET,
-            writeToFileEmit: true,
-        }),
-    );
-}
+config.plugins.push(
+  new CleanWebpackPlugin(),
+  new ManifestPlugin({
+    fileName: path.resolve(PATH_PUBLIC, 'manifest.json'),
+    publicPath: PATH_ASSET,
+    writeToFileEmit: true,
+  }),
+);
 
 module.exports = config;

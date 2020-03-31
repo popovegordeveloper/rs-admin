@@ -1,7 +1,12 @@
 <template>
-    <div class="auth">
+    <div>
 
     </div>
+    <form class="auth" method="POST">
+        <input type="email" name="email">
+        <input type="password" name="password">
+        <button>Войти</button>
+    </form>
 </template>
 
 <script>
@@ -10,6 +15,8 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="sass" scoped>
+.auth
+    display: flex
+    flex-direction: column
 </style>

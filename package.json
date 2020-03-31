@@ -4,8 +4,8 @@
   "description": "frontend boilerplate",
   "scripts": {
     "start": "npm run hot",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --open --progress --hot --inline",
-    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --open --progress --watch",
+    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --progress --hot --inline",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --watch",
     "build": "npm run production",
     "dev": "npm run development",
     "prod": "npm run production",

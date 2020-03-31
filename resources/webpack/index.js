@@ -1,11 +1,15 @@
 import Vue from 'vue'
+import Auth from './components/Auth';
 
-const componentns = require.context('./components', true, /\.vue/);
-
-console.log(componentns);
+const modules = require.context('./components', true, /\.vue$/);
+const components = modules.keys().reduce((acc, comp) => {
+  const module = modules(comp).default;
+  return { ...acc, [module.name]: module }
+}, {});
 
 document.addEventListener('DOMContentLoaded', function () {
   const app = new Vue({
     el: '#root',
+    components,
   });
 });

@@ -310,7 +310,7 @@ if (IS_PRODUCTION) {
     config.plugins.push(
         new CleanWebpackPlugin(),
         new ManifestPlugin({
-            fileName: path.resolve(PATH_PUBLIC, 'manifest.json'),
+            fileName: path.resolve(PATH_PUBLIC, 'mix-manifest.json'),
             publicPath: PATH_ASSET,
             writeToFileEmit: true,
         }),

@@ -32,15 +32,15 @@ class RsAdminServiceProvider extends ServiceProvider
         $this->ensureHttps();
 
         if ($this->app->runningInConsole()) {
-            $this->publishes([__DIR__ . '../../config' => config_path()], 'rs-admin-config'); //Конфиг
-            $this->publishes([__DIR__ . '../../database/migrations' => database_path('migrations')], 'rs-admin-migrations'); //Миграции
-            $this->publishes([__DIR__ . '../../resources/assets' => public_path('vendor/rs-admin'),], 'rs-admin-assets'); //Публикуем CSS и JS
+            $this->publishes([__DIR__ . '/../../config' => config_path()], 'rs-admin-config'); //Конфиг
+            $this->publishes([__DIR__ . '/../../database/migrations' => database_path('migrations')], 'rs-admin-migrations'); //Миграции
+            $this->publishes([__DIR__ . '/../../resources/assets' => public_path('vendor/rs-admin'),], 'rs-admin-assets'); //Публикуем CSS и JS
         }
 
         //Загружаем вьюхи
-        $this->loadViewsFrom(__DIR__ . '../../resources/views', 'rs-admin');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'rs-admin');
         //Загружаем роуты
-        $this->loadRoutesFrom(__DIR__ . '../../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
     }
 
     /**

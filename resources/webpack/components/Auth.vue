@@ -15,7 +15,7 @@
                     <input type="password" name="password" id="password" class="form-control">
                 </div>
             </div>
-            <button class="btn btn-block btn-hero btn-noborder btn-rounded btn-alt-primary">Войти</button>
+            <button class="btn btn-block btn-rounded btn-alt-primary">Войти</button>
         </form>
     </div>
 </template>

@@ -1,5 +1,6 @@
 <template>
     <div class="auth">
+        <img src="/vendor/rs-admin/images/logo.svg" alt="RS">
         <h1>Административная панель</h1>
         <h2 class="text-muted">Пожалуйста авторизуйтесь</h2>
         <form method="POST">
@@ -45,7 +46,7 @@
         text-align: center
         margin-bottom: 10px
         letter-spacing: 2px
-        margin-top: 75px
+        margin-top: 50px
 
     h2
         line-height: 1.2
@@ -70,5 +71,10 @@
         border-left: 0
         border-right: 0
         border-top: 0
+
+    img
+        width: 150px
+        margin: 0 auto
+        margin-top: 50px
 
 </style>

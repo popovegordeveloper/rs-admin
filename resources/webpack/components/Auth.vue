@@ -47,6 +47,7 @@
         margin-bottom: 10px
         letter-spacing: 2px
         margin-top: 50px
+        font-size: 2rem
 
     h2
         line-height: 1.2

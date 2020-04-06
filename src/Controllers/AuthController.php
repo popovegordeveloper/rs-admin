@@ -15,8 +15,9 @@ class AuthController extends Controller
         if ($request->getMethod() == 'GET')
             return view('rs-admin::login.index');
 
-        if (Auth::guard()->attempt($request->only(['email', 'password']))) {
+        if (Auth::guard('admin')->attempt($request->only(['email', 'password']))) {
 
         }
+
     }
 }

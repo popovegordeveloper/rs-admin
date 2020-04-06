@@ -4,6 +4,7 @@
 namespace Rs\RsAdmin\Providers;
 
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 
 class RsAdminServiceProvider extends ServiceProvider
@@ -21,6 +22,8 @@ class RsAdminServiceProvider extends ServiceProvider
 
     public function register()
     {
+        config(Arr::dot(config('rs_admin.auth', []), 'auth.'));
+
         $this->registerRouteMiddleware();
 
         if ($this->app->runningInConsole())
@@ -34,7 +37,10 @@ class RsAdminServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([__DIR__ . '/../../config' => config_path()], 'rs-admin-config'); //Конфиг
             $this->publishes([__DIR__ . '/../../database/migrations' => database_path('migrations')], 'rs-admin-migrations'); //Миграции
-            $this->publishes([__DIR__ . '/../../resources/assets' => public_path('vendor/rs-admin'),], 'rs-admin-assets'); //Публикуем CSS и JS
+            $this->publishes([
+                __DIR__ . '/../../resources/assets' => public_path('vendor/rs-admin'),
+                __DIR__ . '/../../resources/images' => public_path('vendor/rs-admin/images'),
+                ], 'rs-admin-assets'); //Публикуем CSS и JS
         }
 
         //Загружаем вьюхи

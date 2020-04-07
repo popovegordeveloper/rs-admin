@@ -6,6 +6,7 @@ namespace Rs\RsAdmin\Providers;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
+use Rs\RsAdmin\Middleware\Authenticate;
 
 class RsAdminServiceProvider extends ServiceProvider
 {
@@ -13,10 +14,12 @@ class RsAdminServiceProvider extends ServiceProvider
     ];
 
     protected $routeMiddleware = [
+        'admin.auth'       => Authenticate::class,
     ];
 
     protected $middlewareGroups = [
         'admin' => [
+            'admin.auth',
         ],
     ];
 
@@ -28,6 +31,8 @@ class RsAdminServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole())
             $this->commands($this->commands); //Регистрация комманд
+
+        $this->registerRouteMiddleware();
     }
 
     public function boot()

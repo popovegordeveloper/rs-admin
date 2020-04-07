@@ -1,0 +1,19 @@
+<template>
+    <div class="page-container">
+        <sidebar :user="user"/>
+    </div>
+</template>
+
+<script>
+    import Sidebar from "./Sidebar";
+
+    export default {
+        name: "Display",
+        components: {Sidebar},
+        props: ['user', 'menu']
+    }
+</script>
+
+<style scoped>
+
+</style>

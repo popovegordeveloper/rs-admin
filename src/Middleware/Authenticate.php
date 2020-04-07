@@ -13,7 +13,7 @@ class Authenticate extends Middleware
     public function handle($request, Closure $next, ...$guards)
     {
         if (Auth::guard('admin')->guest())
-            return redirect(route('admin.login'));
+            return redirect()->route('admin.login');
 
         return $next($request);
     }

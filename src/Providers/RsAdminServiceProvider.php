@@ -6,11 +6,13 @@ namespace Rs\RsAdmin\Providers;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
+use Rs\RsAdmin\Console\InstallCommand;
 use Rs\RsAdmin\Middleware\Authenticate;
 
 class RsAdminServiceProvider extends ServiceProvider
 {
     protected $commands = [
+        InstallCommand::class
     ];
 
     protected $routeMiddleware = [
@@ -41,7 +43,10 @@ class RsAdminServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([__DIR__ . '/../../config' => config_path()], 'rs-admin-config'); //Конфиг
-            $this->publishes([__DIR__ . '/../../database/migrations' => database_path('migrations')], 'rs-admin-migrations'); //Миграции
+            $this->publishes([
+                __DIR__ . '/../../database/migrations' => database_path('migrations'),
+                __DIR__ . '/../../database/seeds' => database_path('seeds'),
+            ], 'rs-admin-migrations'); //Миграции
             $this->publishes([
                 __DIR__ . '/../../resources/assets' => public_path('vendor/rs-admin'),
                 __DIR__ . '/../../resources/images' => public_path('vendor/rs-admin/images'),

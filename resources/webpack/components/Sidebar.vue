@@ -37,6 +37,9 @@
                         window.location.href = data.redirect_url;
                 })
             }
+        },
+        mounted(){
+            console.log(this.menu);
         }
     }
 </script>

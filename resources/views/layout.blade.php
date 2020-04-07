@@ -10,8 +10,9 @@
     <link rel="stylesheet" href="{{ $manifest["app.css"] }}">
 </head>
 <body>
+
 <div id="root">
-    <display :user="{{ $user }}"/>
+    <display :user="{{ $user }}" :menu="{{ json_encode($menu) }}"/>
 </div>
 <script src="{{ $manifest['vendors.js'] }}"></script>
 <script src="{{ $manifest['app.js'] }}"></script>

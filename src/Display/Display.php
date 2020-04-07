@@ -14,7 +14,8 @@ class Display
     public function __construct()
     {
         $this->params = [
-            'user' => Auth::guard('admin')->user()
+            'user' => Auth::guard('admin')->user(),
+            'menu' => include app_path('Admin/navigation.php')
         ];
     }
 

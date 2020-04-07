@@ -1,6 +1,6 @@
 <template>
     <div class="page-container">
-        <sidebar :user="user"/>
+        <sidebar :user="user" :menu="menu"/>
     </div>
 </template>
 

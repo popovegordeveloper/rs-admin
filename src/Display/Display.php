@@ -6,6 +6,7 @@ namespace Rs\RsAdmin\Display;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Rs\RsAdmin\Display\Menu\Item;
 
 class Display
 {
@@ -13,9 +14,15 @@ class Display
 
     public function __construct()
     {
+        $menu = include app_path('Admin/navigation.php');
+
+        foreach ($menu as $menu_item)
+            if (!$menu_item instanceof Item)
+                throw new \Exception('Menu item may instanceof ' . Item::class);
+
         $this->params = [
             'user' => Auth::guard('admin')->user(),
-            'menu' => include app_path('Admin/navigation.php')
+            'menu' => $menu
         ];
     }
 

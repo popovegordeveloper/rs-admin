@@ -14,6 +14,7 @@
     }
 </script>
 
-<style scoped>
-
+<style lang="sass" scoped>
+    .page-container
+        background-color: #f6f7f9
 </style>

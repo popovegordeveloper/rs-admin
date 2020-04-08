@@ -19,6 +19,7 @@
                         <span>Главная</span>
                     </a>
                 </li>
+                <menu-item v-for="item in menu" :item="item"/>
             </ul>
         </div>
     </nav>
@@ -26,9 +27,11 @@
 
 <script>
     import axios from 'axios';
+    import MenuItem from "./MenuItem";
 
     export default {
         name: "Sidebar",
+        components: {MenuItem},
         props: ['user', 'menu'],
         methods: {
             logout(){
@@ -44,7 +47,7 @@
     }
 </script>
 
-<style lang="sass" scoped>
+<style lang="sass">
     #sidebar
         background-color: #fff
         max-width: 230px
@@ -52,24 +55,38 @@
         box-shadow: 5px 0 10px #e4e7ed
 
         .content-sidebar
-            padding: 18px
+            padding-top: 18px
+            padding-bottom: 18px
 
             .nav-main
                 padding: 0
-                li
+                margin: 0
+                ul
+                    margin: 0
+                    padding: 0 0 0 30px
+                    height: 0
                     list-style: none
+                    overflow: hidden
+                li.open > ul
+                    height: auto
+                    padding-top: 5px
+                    padding-bottom: 5px
+                    background-color: #f6f7f9
+                li
                     a
+                        padding: 9px 18px 9px 18px
+                        width: 100%
                         color: rgba(87,87,87,.9)
                         text-decoration: none
                         font-weight: 600
                         font-size: 14px
-                        padding: 9px 18px 9px 0px
                         transition: color .12s ease-out
                         .menu-item-icon
                             margin-right: 10px
                         span
                             transition: all .26s cubic-bezier(.47,0,.745,.715)
-                            letter-spacing: 0.5px
+                            //letter-spacing: 0.5px
+                            vertical-align: middle
 
                         &:hover
                             span
@@ -80,6 +97,7 @@
             margin-left: 10px
             cursor: pointer
             transition: color .12s ease-out
+            vertical-align: middle
 
             &:hover
                 color: $primary-color
